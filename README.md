@@ -13,11 +13,13 @@ The first sampling methods we tested were of random oversampling and oversamplin
 For the random oversampling:
 - The balanced accuracy score was about 0.677.
 - The precision and recall for both high_risk and low_risk can be seen below:
+
 ![alt text](Resources/ROS_PR.png)
 
 For the SMOTE oversampling:
 - The balanced accuracy score was about 0.662.
 - The precision and recall for both high_risk and low_risk can be seen below:
+
 ![alt text](Resources/SMOTE_PR.png)
 
 As can be seen, the precision values for each are about the same: 0.01 and 1.00, with an average precision of 0.99. The recall values are different, however: random oversampling has a slightly higher recall rate for high-risk of 0.69, compared to 0.63, while it recalls low-risk worse than SMOTE at a 0.66, compared to 0.69. Considering both would miss flagging about 30% of all high-risk households, these numbers aren't great, but they could be worse.
@@ -29,11 +31,13 @@ The next sampling methods we tested were using the Cluster Centroids algorithm a
 For Cluster Centroids:
 - The balanced accuracy score was about 0.545.
 - The precision and recall can be seen below:
+
 ![alt text](Resources/CC_PR.png)
 
 For SMOTEENN:
 - The balanced accuracy score was about 0.645.
 - The precision and recall can be seen below:
+
 ![alt text](Resources/SMOTEENN_PR.png)
 
 At this point it's pretty clear that precision won't play much of a matter here -- the more useful data will be within recall. While Cluster Centroids and SMOTEENN algorithms do a slightly better job with flagging high-risk households, they are much worse at making sure most low-risk households remain unflagged.
@@ -45,13 +49,16 @@ The final methods we used were Ensemble learners, namely using the Balanced Rand
 For Balanced Random Forest:
 - The balanced accuracy score was about 0.789.
 - The precision and recall can be seen below:
+
 ![alt text](Resources/BRFC_PR.png)
 - Additionally, we compiled a list of feature importance for the features in our X Dataframe:
+
 ![alt text](Resources/BRFC_features.png)
 
 For Easy Ensemble:
 - The balanced accuracy score was about 0.932.
 - The precision and recall can be seen below:
+
 ![alt text](Resources/EEC_PR.png)
 
 Once more the recall rates are of note. This time, both ensemble methods of machine learning produced much, much better results, being all-around higher than any of the oversampling and undersampling methods, and in the case of Easy Ensemble, by a significant amount.
